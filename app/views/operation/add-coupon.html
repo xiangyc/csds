@@ -1,0 +1,87 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'add-activity-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-activity-8' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="activity.name" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-19' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="activity.name" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-20' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="activity.name" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-16' | T"></span> </div>
+										<div class="profile-info-value">
+					                      <input class="form-control" style="height:40px;width:396px;margin-top:5px;" id="changeImg" type="file" ng-model="file" name="file" ngf-max-size="1MB">
+					                      <p style="margin-top:5px;margin-bottom:10px;"><font style="font-size:12px;color:red;">注：文件类型必须为gif,jpeg,png,jpg. <span ng-bind-html="'add-coupon-7' | T"></span>1M</font></p>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-coupon-8' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="activity.location" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-activity-14' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<textarea class="form-control" cols="9" rows="7" maxlength="100" ng-model="activity.content"></textarea>
+										</div>
+									</div>
+									
+
+								</div>
+							</div>
+
+                            <div class="col-xs-12" style="margin-top:30px;">
+								<div class="text-center">
+                                    <div style="margin-left:165px;float:left;" ng-click="save()">
+                                        <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+                                    </div>
+                                    <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+                                        <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+                                    </div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+    </div>
+
+</div>

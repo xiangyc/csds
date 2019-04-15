@@ -1,0 +1,89 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'edit-menu-manager-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center;height: 50px;"> <span ng-bind-html="'menu-manager-list-6' | T"></span> </div>
+										<select class="chosen-select form-control"  ng-model="menuTypeId" ng-change="changeMenuType()" style="width:220px;margin-left: 12px;margin-top: 5px;">
+											<option value="">{{'common-select' | T}}</option>
+										   <option value="0">{{'menu-manager-list-22' | T}}</option>
+										   <option value="1">{{'menu-manager-list-23' | T}}</option>
+										</select>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center;height: 50px;"> <span ng-bind-html="'menu-manager-list-16' | T"></span> </div>
+										<select class="chosen-select form-control" ng-model="parentId" ng-options="menu.id as menu.name for menu in parent" style="width:220px;margin-left: 12px;margin-top: 5px;">
+											<option value="">{{'common-select' | T}}</option>
+											<!-- <option value=""><span ng-bind-html="'edit-menu-manager-7' | T"></span></option>
+                                               <option value="0"><span ng-bind-html="'edit-menu-manager-9' | T"></span></option>
+                                               <option value="1"><span ng-bind-html="'edit-menu-manager-10' | T"></span></option>
+                                               <option value="1">会员管理</option>
+                                               <option value="1"><span ng-bind-html="'edit-menu-manager-12' | T"></span></option>
+                                               <option value="1"><span ng-bind-html="'edit-menu-manager-13' | T"></span></option>
+                                               <option value="1"><span ng-bind-html="'edit-menu-manager-14' | T"></span></option>-->
+										</select>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'menu-manager-list-3' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="menuManager.name" maxlength="15" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'menu-manager-list-18' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="menuManager.url" maxlength="50" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'menu-manager-list-17' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="menuManager.icon" maxlength="30" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'menu-manager-list-20' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="menuManager.orderNo" maxlength="30" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+								</div>
+							</div>
+
+                            <div class="col-xs-12" style="margin-top:30px;">
+								<div class="text-center">
+                                    <div style="margin-left:165px;float:left;" ng-click="save()">
+                                        <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+                                    </div>
+                                    <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+                                        <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+                                    </div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+    </div>
+
+</div>

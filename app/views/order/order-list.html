@@ -1,0 +1,250 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="ace-settings-container" id="ace-settings-container">
+			<!-- 公共皮肤，框架布局设置skin.html -->
+			<div ng-include="'views/common/skin.html'" ></div>
+			<!-- 公共皮肤，框架布局设置skin.html -->
+		</div>
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<span ng-bind-html="'common-background-management' | T"></span>
+				</li>
+
+				<li>
+					<span><span ng-bind-html="'order-evaluate-list-2' | T"></span></span>
+				</li>
+			</ul><!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="page-header">
+								<form class="form-inline">
+									<div class="input-group">
+										<span class="input-group-addon"><span ng-bind-html="'member-detail-83' | T"></span></span>
+										<input class="form-control" ng-model="no" type="text" id="no" ng-keydown="keyDown($event)" maxlength="20" />
+									</div>
+									<div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'order-detail-16' | T"></span></span>
+										<input class="form-control" ng-model="returnCode" type="text" ng-keydown="keyDown($event)" maxlength="20" />
+									</div>
+									
+									<div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-type' | T"></span></span>
+						                <select class="chosen-select form-control" ng-model="type" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="1">{{'common-order' | T}}</option>
+				                            <option value="2">{{'common-thdd' | T}}</option>
+				                            <option value="3">{{'order-hhdd' | T}}</option>
+						                </select>
+						            </div>
+						            
+						            <div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'order-list-14' | T"></span></span>
+						                <select class="chosen-select form-control" ng-model="status" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="0">{{'order-list-16' | T}}</option>
+				                            <option value="1">{{'order-list-17' | T}}</option>
+				                            <option value="2">{{'order-list-18' | T}}</option>
+				                            <option value="3">{{'order-list-19' | T}}</option>
+				                            <option value="4">{{'order-list-20' | T}}</option>
+				                            <option value="5">{{'order-list-21' | T}}</option>
+						                </select>
+						            </div>
+						            
+									<div class="form-group" align="right" style="margin-left:10px;">
+										<button type="button" class="btn btn-white btn-bold" ng-click="showPrescription()"><i class="ace-icon fa fa-cog"></i><strong><span ng-bind-html="'order-list-22' | T"></span></strong></button>
+									</div>
+
+						            
+
+						        </form>
+						        <form class="form-inline" style="margin-top:10px;">
+									
+									<div class="input-group">
+										<span class="input-group-addon"><span ng-bind-html="'order-list-23' | T"></span></span>
+						                <select class="chosen-select form-control" ng-model="hasActivity" style="width:120px;" ng-change="changeTarget()">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="1">{{'order-list-25' | T}}</option>
+				                            <option value="0">{{'order-list-26' | T}}</option>
+						                </select>
+						            </div>
+						            
+						            <div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'order-list-27' | T"></span></span>
+						                <select class="chosen-select form-control" id="activityId" ng-model="activityId" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="1">{{'add-activity-5' | T}}</option>
+				                            <option value="2">{{'add-activity-6' | T}}</option>
+						                </select>
+						            </div>
+						            
+									<div class="input-group" style="margin-left:10px;">
+									   <span class="input-group-addon"><span ng-bind-html="'common-createtime' | T"></span></span>
+									   <div class="input-group">
+										   <input class="form-control date-picker" ng-model="startDate" readonly size="12" type="text"/>
+										   <span class="input-group-addon">
+											   <i class="fa fa-calendar bigger-110"></i>
+										   </span>
+									   </div>
+									   -
+									   <div class="input-group">
+										   <input class="form-control date-picker" ng-model="endDate" readonly size="12" type="text" />
+										   <span class="input-group-addon">
+											   <i class="fa fa-calendar bigger-110"></i>
+										   </span>
+									   </div>
+									   
+									   <div class="form-group" style="margin-left:80px;margin-right:5px;">
+						                <button type="button" class="btn btn-white btn-success" ng-click="query()"><i class="ace-icon fa fa-search nav-search-icon"></i><strong><span ng-bind-html="'common-query' | T"></span></strong></button>
+							            </div>
+							            <div class="form-group">
+							                <button type="button" class="btn btn-white btn-info" ng-click="reset()"><i class=" ace-icon fa fa-undo"></i><strong><span ng-bind-html="'common-reset' | T"></span></strong></button>
+							            </div>
+						            
+								   </div>
+									
+						        </form>
+							</div><!-- /.page-header -->
+
+							<div class="table-header">
+								<span ng-bind-html="'order-list-34' | T"></span>
+							</div>
+							<div>
+								<table class="table table-striped table-bordered table-hover" ng-init="getPage()">
+									<thead style="font-size:11px;">
+										<tr>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-serial-number' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'order-detail-4' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'member-detail-83' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-type' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'activity-list-3' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-ddje' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'member-detail-87' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'member-detail-86' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'member-detail-90' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-xdsj' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-operation' | T"></span></th>
+											<th style="font-weight:normal;"><span ng-bind-html="'common-status' | T"></span></th>
+										</tr>
+									</thead>
+
+									<tbody style="font-size:13px;">
+										<tr ng-repeat="row in data" repeat-finish align="center">
+											<td>{{($index+1) + (currentPage - 1) * itemsPerPage}}</td>
+											<td>{{row.memberName}}</td>
+											<td style="color:#6FB3E0">{{row.no}}</td>
+											<td ng-if="lang == 'cn'">{{row.type | decode:1:'订单':2:'退货单':3:'换货单'}}</td>
+											<td ng-if="lang == 'en'">{{row.type | decode:1:'order':2:'return order':3:'exchange order'}}</td>
+											<th title="{{row.activityName}}">{{row.activityName | limit:6}}</th>
+											<td>{{row.amount}}</td>
+											<td>{{row.payAmount}}</td>
+											<td>{{row.couponName}}</td>
+											<td>{{row.taxAmount}}</td>
+											<td>{{row.createTime | date : 'yyyy/MM/dd HH:mm:ss'}}</td>
+											<td ng-if="lang == 'cn'">{{row.status  | decode:0:'未支付':1:'已支付':2:'已发货':3:'退货':4:'换货':5:'验货'}}</td>
+											<td ng-if="lang == 'en'">{{row.status  | decode:0:'unpaid':1:'already paid':2:'already shipped':3:'return goods':4:'exchange goods':5:'examine goods'}}</td>
+											<td>
+												<div class="btn-group" role="group">
+							                        <button class="btn btn-white btn-default btn-bold" ng-click="showOrderDetail(row.id,row.status)"><span ng-bind-html="'common-xq' | T"></span></button>
+													<button ng-if="row.status == 1&&row.returnStatus==null" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,2,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-57' | T"></span></button>
+													<button ng-if="row.status == 1&&row.returnStatus==-1" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,2)"><span ng-bind-html="'common-shbtg' | T"></span></button>
+													<button ng-if="row.status == 1&&row.returnStatus==0" class="btn btn-white btn-default btn-bold disabled" ><span ng-bind-html="'common-sqz' | T"></span></button>
+													<button ng-if="row.status == 1&&row.returnStatus==1" class="btn btn-white btn-default btn-bold" ><span ng-bind-html="'order-list-60' | T"></span></button>
+
+													<button ng-if="row.status == 1&&row.exchageStatus==null" class="btn btn-white btn-warning btn-bold" ng-click="showOrderReturn(row.id,3,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-61' | T"></span></button>
+													<button ng-if="row.status == 1&&row.exchageStatus==-1" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,3)"><span ng-bind-html="'common-shbtg' | T"></span></button>
+													<button ng-if="row.status == 1&&row.exchageStatus==0" class="btn btn-white btn-default btn-bold disabled"><span ng-bind-html="'common-sqz' | T"></span></button>
+													<button ng-if="row.status == 1&&row.exchageStatus==1" class="btn btn-white btn-default btn-bold"><span ng-bind-html="'order-list-64' | T"></span></button>
+
+													<button ng-if="row.status == 2&&row.returnStatus==null" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,2,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-57' | T"></span></button>
+													<button ng-if="row.status == 2&&row.returnStatus==-1" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,2)"><span ng-bind-html="'common-shbtg' | T"></span></button>
+													<button ng-if="row.status == 2&&row.returnStatus==0" class="btn btn-white btn-default btn-bold disabled" ><span ng-bind-html="'common-sqz' | T"></span></button>
+													<button ng-if="row.status == 2&&row.returnStatus==1" class="btn btn-white btn-default btn-bold" ><span ng-bind-html="'order-list-60' | T"></span></button>
+
+													<button ng-if="row.status == 2&&row.exchageStatus==null" class="btn btn-white btn-warning btn-bold" ng-click="showOrderReturn(row.id,3,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-61' | T"></span></button>
+													<button ng-if="row.status == 2&&row.exchageStatus==-1" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,3)"><span ng-bind-html="'common-shbtg' | T"></span></button>
+													<button ng-if="row.status == 2&&row.exchageStatus==0" class="btn btn-white btn-default btn-bold disabled"><span ng-bind-html="'common-sqz' | T"></span></button>
+													<button ng-if="row.status == 2&&row.exchageStatus==1" class="btn btn-white btn-default btn-bold"><span ng-bind-html="'order-list-64' | T"></span></button>
+
+													<button ng-if="row.status == 0" class="btn btn-white btn-info btn-bold disabled"><span ng-bind-html="'order-list-16' | T"></span></button>
+													<button ng-if="row.status == 3" class="btn btn-white btn-success btn-bold disabled"><span ng-bind-html="'order-list-19' | T"></span></button>
+													<button ng-if="row.status == 4" class="btn btn-white btn-success btn-bold disabled"><span ng-bind-html="'order-list-20' | T"></span></button>
+													<!--<button ng-if="row.status == 5" class="btn btn-white btn-success btn-bold" style="margin-left:4px;"><i class="fa fa-list"></i> 已验货</button>-->
+							                    </div>
+							                    
+							                    <div class="btn-group" role="group" ng-if="row.status == 5">
+													<button class="btn btn-white btn-success btn-bold disabled"><span ng-bind-html="'order-list-21' | T"></span></button>
+													<button ng-if="row.returnStatus==null" class="btn btn-white btn-default btn-bold" ng-click="showOrderReturn(row.id,2,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-57' | T"></span></button>
+													<button ng-if="row.exchageStatus==null" class="btn btn-white btn-warning btn-bold" ng-click="showOrderReturn(row.id,3,row.returnStatus,row.exchageStatus)"><span ng-bind-html="'order-list-61' | T"></span></button>
+							                    </div>
+							                    
+					                        </td>
+										</tr>
+									</tbody>
+								</table>
+
+					            <div ng-show="totalItems > 0">
+					            <h5 style="font-size:14px;float:left;">
+					                <select ng-model="viewby" ng-change="setItemsPerPage(viewby)">
+					                    <option>10</option>
+					                    <option>20</option>
+					                    <option>30</option>
+					                </select>&nbsp;{{records}}&nbsp;&nbsp;{{total}}{{totalItems}}{{records}}
+								</h5>
+					            <uib-pagination
+					                    total-items="totalItems"
+					                    ng-model="currentPage"
+					                    max-size="5"
+										rotate="false"
+					                    boundary-links="true"
+					                    force-ellipses="false"
+					                    first-text="{{first}}"
+					                    last-text="{{last}}"
+					                    previous-text="{{previous}}"
+					                    next-text="{{next}}"
+					                    num-pages="numPages"
+					                    ng-change="pageChanged()"
+					                    items-per-page="itemsPerPage"
+					                    class="pagination-sm" style="float:right;margin:0">
+					            </uib-pagination>
+								</div>
+					            
+							</div>
+						</div>
+					</div>
+					<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->
+
+<script type="text/javascript">
+
+	jQuery(function($) {
+		$('.date-picker').datepicker({
+    		autoclose: true,
+    		todayHighlight: true,
+            format: "yyyy-mm-dd"
+    	})
+    	.next().on(ace.click_event, function(){
+    		$(this).prev().focus();
+    	});
+	});
+
+	function keydownEvent() {
+		var e = window.event || arguments.callee.caller.arguments[0];
+		if (e && e.keyCode == 13 ) {
+			//$scope.getPage();
+			alert("您按回车键了");
+		}
+	}
+</script>

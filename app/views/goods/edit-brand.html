@@ -1,0 +1,78 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'edit-brand-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="profile-user-info profile-user-info-striped" ng-init="getInit()">
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:120px;text-align:center"> <span ng-bind-html="'add-brand-2' | T"></span> </div>
+                                        <select class="chosen-select form-control" ng-model="typeId" ng-options="super.id as super.name for super in goodstype" style="width:398px;margin-left: 12px;margin-top: 5px;">
+										   <option value="">--{{'commonjs-xzsplx' | T}}--</option>
+									    </select>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-brand-4' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="brand.name" maxlength="30" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-brand-6' | T"></span> </div>
+										<div class="profile-info-value">
+											<div style="width:170px;float: left;margin-bottom: 10px;"><img ng-if="brand.thum != null" class="img-thumbnail-180" ng-src="{{brand.thum}}" /></div>
+											<div style="width:170px;float: left;"><p style="margin-top:35px;"><font style="font-size:12px;color:red;"><span ng-bind-html="'add-goods-category-11' | T"></span>&nbsp;gif,jpeg,png,jpg. <span ng-bind-html="'add-goods-category-15' | T"></span>&nbsp;1M</font></p></div>
+
+											<input class="form-control" style="height:40px;width:396px;margin-top:5px;" id="changeImg" type="file" ng-model="file" name="file" ngf-max-size="1MB">
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-brand-8' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="brand.sort" maxlength="30" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'common-bz' | T"></span> </div>
+										<div class="profile-info-value">
+											<input type="text" ng-model="brand.note" maxlength="30" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+                            <div class="col-xs-12" style="margin-top:30px;">
+								<div class="text-center">
+                                    <div style="margin-left:165px;float:left;" ng-click="save()">
+                                        <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+                                    </div>
+                                    <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+                                        <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+                                    </div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+    </div>
+
+</div>

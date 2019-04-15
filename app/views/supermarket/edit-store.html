@@ -1,0 +1,86 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'edit-store-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped" ng-init="getInit()">
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'common-mdmc' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="supermarketstore.name" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+                                   <div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-goods-2' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="marketName" disabled="disabled" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'merchant-apply-24' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="supermarketstore.promotion" maxlength="50" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'merchant-apply-21' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="supermarketstore.address" maxlength="50" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-store-9' | T"></span> </div>
+										<div class="profile-info-value">
+										  <div style="width:170px;float: left;margin-bottom: 10px;"><img ng-if="supermarketstore.icon != null" class="img-thumbnail-180" ng-src="{{supermarketstore.icon}}" /></div>
+										  <div style="width:170px;float: left;"><p style="margin-top:35px;"><font style="font-size:12px;color:red;"><span ng-bind-html="'add-goods-category-11' | T"></span>&nbsp;gif,jpeg,png,jpg. <span ng-bind-html="'add-goods-category-15' | T"></span>&nbsp;1M</font></p></div>
+										  
+					                      <input class="form-control" style="height:40px;width:396px;margin-top:5px;" id="changeImg" type="file" ng-model="file" name="file" ngf-max-size="1MB">
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-store-11' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<textarea class="form-control" cols="9" rows="7" maxlength="100" ng-model="supermarketstore.summary"></textarea>
+										</div>
+									</div>
+									
+
+								</div>
+							</div>
+
+                            <div class="col-xs-12" style="margin-top:30px;">
+								<div class="text-center">
+                                    <div style="margin-left:165px;float:left;" ng-click="save()">
+                                        <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+                                    </div>
+                                    <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+                                        <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+                                    </div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+    </div>
+
+</div>

@@ -1,0 +1,142 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'add-activity-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-18' | T"></span> </div>
+										<div class="profile-info-value">
+											<select class="chosen-select form-control" ng-model="activity.location" style="width:400px;" ng-change="changeSupermarket()">
+												<option value="">{{'add-activity-3' | T}}</option>
+												<option value="1">{{'add-activity-5' | T}}</option>
+												<option value="2">{{'add-activity-6' | T}}</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-activity-7' | T"></span> </div>
+										<div class="profile-info-value">
+											<select id="food" class="chosen-select form-control" multiple="multiple" style="width:400px;">
+											</select>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-activity-8' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="activity.name" maxlength="20" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-19' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<div class="input-group">
+											   <input class="form-control date-picker" ng-model="activity.startTime" readonly size="12" type="text"/>
+											   <span class="input-group-addon">
+												   <i class="fa fa-calendar bigger-110"></i>
+											   </span>
+										   </div>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-20' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<div class="input-group">
+											   <input class="form-control date-picker" ng-model="activity.endTime" readonly size="12" type="text"/>
+											   <span class="input-group-addon">
+												   <i class="fa fa-calendar bigger-110"></i>
+											   </span>
+										   	</div>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'activity-list-16' | T"></span> </div>
+										<div class="profile-info-value">
+					                      <input class="form-control" style="height:40px;width:396px;margin-top:5px;" id="changeImg" type="file" ng-model="file" name="file" ngf-max-size="1MB">
+					                      <p style="margin-top:5px;margin-bottom:10px;"><font style="font-size:12px;color:red;"><span ng-bind-html="'add-goods-category-11' | T"></span>&nbsp;gif,jpeg,png,jpg. <span ng-bind-html="'add-goods-category-15' | T"></span>&nbsp;1M</font></p>
+										</div>
+									</div>
+
+
+
+		 <div class="profile-info-row">
+		 <div class="profile-info-name" style="width:100px;text-align:center"> <span ng-bind-html="'add-activity-14' | T"></span> </div>
+		 <div class="profile-info-value">
+		 <textarea class="form-control" cols="9" rows="7" maxlength="100" ng-model="activity.content"></textarea>
+		 </div>
+		 </div>
+
+
+		 </div>
+		 </div>
+
+		 <div class="col-xs-12" style="margin-top:30px;">
+		 <div class="text-center">
+		 <div style="margin-left:165px;float:left;" ng-click="save()">
+		 <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+		 </div>
+		 <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+		 <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+		 </div>
+		 </div>
+		 </div>
+
+		 </div>
+		 </div>
+		 </td>
+		 </tr>
+		 </div>
+		 </div>
+
+		 <div style="margin-top:35px;">
+		 </div>
+
+		 </div>
+
+		 <script type="text/javascript">
+
+		 jQuery(function($) {
+		 $('.date-picker').datepicker({
+		 autoclose: true,
+		 todayHighlight: true,
+		 format: "yyyy-mm-dd"
+		 })
+		 .next().on(ace.click_event, function(){
+		 $(this).prev().focus();
+		 });
+
+		  $('.multiselect').multiselect({
+		 enableFiltering: false,
+		 enableHTML: true,
+		 buttonClass: 'btn btn-white btn-primary',
+		 templates: {
+		 button: '<button type="button" class="multiselect dropdown-toggle" style="width:300px;height:40px;" data-toggle="dropdown"><span class="multiselect-selected-text"></span> &nbsp;<b class="fa fa-caret-down"></b></button>',
+		 ul: '<ul class="multiselect-container dropdown-menu" style="width:300px;"></ul>',
+				filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
+				filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default btn-white btn-grey multiselect-clear-filter" type="button"><i class="fa fa-times-circle red2"></i></button></span>',
+				li: '<li><a tabindex="0"><label></label></a></li>',
+		        divider: '<li class="multiselect-item divider"></li>',
+		        liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
+			 }
+		});
+				
+	});
+
+</script>

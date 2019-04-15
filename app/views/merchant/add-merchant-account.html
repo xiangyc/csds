@@ -1,0 +1,65 @@
+<div class="modal-content" ng-init="init()">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'add-merchant-account-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+                            <div class="col-xs-12">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:150px;text-align:center"> <span ng-bind-html="'add-merchant-account-2' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="user.loginName" maxlength="15" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:150px;text-align:center"> <span ng-bind-html="'common-csmc' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="user.marketName" maxlength="50" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+                                    <div class="profile-info-row">
+                                        <div class="profile-info-name" style="width:150px;text-align:center"> <span ng-bind-html="'common-mobile' | T"></span> </div>
+                                        <div class="profile-info-value">
+											<input type="text" ng-model="user.mobile" maxlength="11" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-xs-12" style="margin-top:10px;margin-left: 14px;font-size: 13px;">
+                                <span><font style="color: red"><strong><span ng-bind-html="'add-merchant-account-7' | T"></span></strong></font></span>
+							</div>
+                            <div class="col-xs-12" style="margin-top:30px;">
+								<div class="text-center">
+                                    <div style="margin-left:165px;float:left;" ng-click="save()">
+                                        <button type="button" class="btn btn-white btn-info"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-save' | T"></span></strong>&nbsp;&nbsp;</button>
+                                    </div>
+                                    <div style="margin-left:35px;float:left;margin-bottom:20px;" ng-click="onCancelClick()">
+                                        <button type="button" class="btn btn-white btn-warning"><i class="ace-icon fa fa-list"></i><strong><span ng-bind-html="'common-cancel' | T"></span></strong></button>
+                                    </div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:35px;">
+    </div>
+
+</div>

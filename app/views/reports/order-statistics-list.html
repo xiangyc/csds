@@ -1,0 +1,197 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<!-- #section:basics/content.breadcrumbs -->
+		<div class="ace-settings-container" id="ace-settings-container">
+			<!-- 公共皮肤，框架布局设置skin.html -->
+			<div ng-include="'views/common/skin.html'" ></div>
+			<!-- 公共皮肤，框架布局设置skin.html -->
+		</div>
+
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<span><span ng-bind-html="'common-background-management' | T"></span></span>
+				</li>
+
+				<li>
+					<span><span ng-bind-html="'order-statistics-list-2' | T"></span></span>
+				</li>
+			</ul><!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content" ng-init="init()">
+
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+							<div class="row">
+								<div class="col-sm-5" style="margin-top:30px;">
+									<div class="widget-box">
+										<div class="widget-header widget-header-flat widget-header-small">
+											<h2 class="widget-title">
+												<i class="ace-icon fa fa-tachometer"></i>
+												<span ng-bind-html="'order-statistics-list-3' | T"></span>
+											</h2>
+										</div>
+
+										<div class="widget-body" style="height:750px;margin-top:15px;">
+													<!-- #section:pages/dashboard.infobox -->
+													<div class="center">
+														<span class="btn btn-app btn-sm btn-yellow no-hover" style="width:300px;height:80px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.countYesterday}}(<span ng-bind-html="'common-individual' | T"></span>)</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"> <strong><span ng-bind-html="'order-statistics-list-5' | T"></span></strong> </span>
+														</span>
+
+														<span class="btn btn-app btn-sm btn-success no-hover" style="width:300px;height:80px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.balanceYesterday || 0 | currency :'￥'}}</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"><strong><span ng-bind-html="'order-statistics-list-6' | T"></span></strong> </span>
+														</span>
+
+														<span class="btn btn-app btn-sm btn-primary no-hover" style="width:300px;height:80px;margin-top: 10px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.countPayYesterday}}(<span ng-bind-html="'common-individual' | T"></span>)</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"> <strong><span ng-bind-html="'order-statistics-list-8' | T"></span></strong> </span>
+														</span>
+														
+														<span class="btn btn-app btn-sm btn-yellow no-hover" style="width:300px;height:80px;margin-top: 10px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.balancePayYesterday || 0 | currency :'￥'}}</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"> <strong><span ng-bind-html="'order-statistics-list-9' | T"></span></strong> </span>
+														</span>
+
+														<span class="btn btn-app btn-sm btn-success no-hover" style="width:300px;height:80px;margin-top: 10px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.countReturnYesterday}}(<span ng-bind-html="'common-individual' | T"></span>)</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"><strong><span ng-bind-html="'order-statistics-list-11' | T"></span></strong> </span>
+														</span>
+
+														<span class="btn btn-app btn-sm btn-primary no-hover" style="width:300px;height:80px;margin-top: 10px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.balanceReturnYesterday || 0 | currency :'￥'}}</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"> <strong><span ng-bind-html="'order-statistics-list-12' | T"></span></strong> </span>
+														</span>
+														
+														<span class="btn btn-app btn-sm btn-primary no-hover" style="width:300px;height:80px;margin-top: 10px;">
+															<span class="line-height-1 bigger-170"> <font style="font-size:18px;"> {{platform.countEvaluateYesterday || 0}}(<span ng-bind-html="'common-individual' | T"></span>)</font> </span>
+
+															<br />
+															<span class="line-height-1 smaller-90"> <strong><span ng-bind-html="'order-statistics-list-14' | T"></span></strong> </span>
+														</span>
+														
+													</div>
+
+										</div><!-- /.widget-body -->
+									</div><!-- /.widget-box -->
+								</div><!-- /.col -->
+
+								<div class="col-sm-5" style="margin-left:20px;margin-top:30px;">
+									<div class="widget-box">
+										<div class="widget-header widget-header-flat widget-header-small">
+											<h2 class="widget-title">
+												<i class="ace-icon fa fa-star orange"></i>
+												<span ng-bind-html="'order-statistics-list-15' | T"></span>
+											</h2>
+										</div>
+
+										<div class="widget-body" style="height:750px;margin-top:15px;" align="center">
+													<!-- #section:pages/dashboard.infobox -->
+													<div class="infobox infobox-green" style="width:300px;height: 90px;">
+														<div class="infobox-icon">
+															<i class="ace-icon fa fa-comments"></i>
+														</div>
+
+														<div class="infobox-data">
+															<span class="infobox-data-number">{{platform.count || 0}}(<span ng-bind-html="'common-individual' | T"></span>)</span>
+															<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-17' | T"></span></strong></div>
+														</div>
+													</div>
+
+													<div class="infobox infobox-blue" style="width:300px;height: 90px;">
+														<div class="infobox-icon">
+															<i class="ace-icon fa fa-twitter"></i>
+														</div>
+
+														<div class="infobox-data">
+															<span class="infobox-data-number">{{platform.balance || 0 | currency :'￥'}}</span>
+															<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-18' | T"></span></strong></div>
+														</div>
+													</div>
+
+													<div class="infobox infobox-pink" style="width:300px;height: 90px;">
+														<div class="infobox-icon">
+															<i class="ace-icon fa fa-shopping-cart"></i>
+														</div>
+
+														<div class="infobox-data">
+															<span class="infobox-data-number">{{platform.countPay || 0}}(<span ng-bind-html="'common-individual' | T"></span>)</span>
+															<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-20' | T"></span></strong></div>
+														</div>
+													</div>
+
+													<div class="infobox infobox-red" style="width:300px;margin-top:2px;height: 90px;">
+														<div class="infobox-icon">
+															<i class="ace-icon fa fa-flask"></i>
+														</div>
+
+														<div class="infobox-data">
+															<span class="infobox-data-number">{{platform.balancePay || 0 | currency :'￥'}}</span>
+															<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-22' | T"></span></strong></div>
+														</div>
+												</div>
+
+												<div class="infobox infobox-orange2" style="width:300px;margin-top:2px;height: 90px;">
+											<!-- #section:pages/dashboard.infobox.sparkline -->
+													<div class="infobox-icon">
+														<i class="ace-icon fa fa-envelope-o"></i>
+													</div>
+
+													<!-- /section:pages/dashboard.infobox.sparkline -->
+													<div class="infobox-data">
+														<span class="infobox-data-number">{{platform.countReturn || 0}}(<span ng-bind-html="'common-individual' | T"></span>)</span>
+														<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-24' | T"></span></strong></div>
+													</div>
+												</div>
+
+												<div class="infobox infobox-blue2" style="width:300px;margin-top:2px;height: 90px;">
+													<div class="infobox-icon">
+														<i class="ace-icon fa fa-barcode"></i>
+													</div>
+
+													<div class="infobox-data">
+														<span class="infobox-data-number">{{platform.balanceReturn || 0 | currency :'￥'}}</span>
+														<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-25' | T"></span></strong></div>
+													</div>
+
+												</div>
+												
+												<div class="infobox infobox-red" style="width:300px;margin-top:2px;height: 90px;">
+														<div class="infobox-icon">
+															<i class="ace-icon fa fa-flask"></i>
+														</div>
+
+														<div class="infobox-data">
+															<span class="infobox-data-number">{{platform.countEvaluate || 0}}(<span ng-bind-html="'common-individual' | T"></span>)</span>
+															<div class="infobox-content"><strong><span ng-bind-html="'order-statistics-list-27' | T"></span></strong></div>
+														</div>
+												</div>
+
+										</div><!-- /.widget-body -->
+									</div><!-- /.widget-box -->
+								</div><!-- /.col -->
+
+							</div><!-- /.row -->
+							<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->

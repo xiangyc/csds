@@ -1,0 +1,167 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="ace-settings-container" id="ace-settings-container">
+			<!-- 公共皮肤，框架布局设置skin.html -->
+			<div ng-include="'views/common/skin.html'" ></div>
+			<!-- 公共皮肤，框架布局设置skin.html -->
+		</div>
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<span><span ng-bind-html="'common-background-management' | T"></span></span>
+				</li>
+
+				<li>
+					<span><span ng-bind-html="'common-statistics' | T"></span></span>
+				</li>
+			</ul><!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="page-header">
+								<form class="form-inline">
+									
+									<div class="input-group">
+										<span class="input-group-addon"><span ng-bind-html="'common-sjzq' | T"></span></span>
+						                <select class="chosen-select form-control" id="time" ng-model="timeType" name="time" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="1">{{'common-day' | T}}</option>
+				                            <option value="2">{{'common-week' | T}}</option>
+				                            <option value="3">{{'common-month' | T}}</option>
+				                            <!--<option value="4">{{'common-season' | T}}</option>-->
+				                            <option value="5">{{'common-year' | T}}</option>
+						                </select>
+						            </div>
+						            
+									<div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-tjsj' | T"></span></span>
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="startDate" readonly size="12" type="text"/>
+										   <span class="input-group-addon">
+											   <i class="fa fa-calendar bigger-110"></i>
+										   </span>
+										</div>
+										-
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="endDate" readonly size="12" type="text" />
+										   <span class="input-group-addon">
+											   <i class="fa fa-calendar bigger-110"></i>
+										   </span>
+										</div>
+									</div>
+									
+									<div class="input-group" style="margin-left:10px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-type' | T"></span></span>
+						                <select class="chosen-select form-control" ng-model="typeId" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="1">{{'common-order' | T}}</option>
+				                            <option value="2">{{'common-thdd' | T}}</option>
+				                            <option value="3">{{'order-hhdd' | T}}</option>
+						                </select>
+						            </div>
+
+									<div class="form-group" style="margin-left:50px;margin-right:15px;">
+										<button type="button" class="btn btn-white btn-success" ng-click="query()"><i class="ace-icon fa fa-search nav-search-icon"></i><strong><span ng-bind-html="'common-query' | T"></span></strong></button>
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-white btn-info" ng-click="reset()"><i class=" ace-icon fa fa-undo"></i><strong><span ng-bind-html="'common-reset' | T"></span></strong></button>
+									</div>
+								</form>
+							</div><!-- /.page-header -->
+
+							<div class="table-header">
+								<span ng-bind-html="'order-sale-list-18' | T"></span>
+							</div>
+							<div>
+								<table class="table table-striped table-bordered table-hover table-responsive" ng-init="getPage()">
+									<thead>
+									<tr>
+										<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+										<th><span ng-bind-html="'common-hykh' | T"></span></th>
+										<!--<th><span ng-bind-html="'common-hy' | T"></span>ID</th>-->
+										<th><span ng-bind-html="'common-hyxm' | T"></span></th>
+										<th><span ng-bind-html="'common-ddbh' | T"></span></th>
+										<th><span ng-bind-html="'common-spmc' | T"></span></th>
+										<th><span ng-bind-html="'common-dj' | T"></span></th>
+										<th><span ng-bind-html="'common-sl' | T"></span></th>
+										<th><span ng-bind-html="'common-ddje' | T"></span></th>
+										<th><span ng-bind-html="'common-fkje' | T"></span></th>
+										<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i><span ng-bind-html="'common-xdsj' | T"></span></th>
+									</tr>
+									</thead>
+
+									<tbody>
+										<tr ng-repeat="row in data" repeat-finish align="center">
+											<td>{{($index+1) + (currentPage - 1) * itemsPerPage}}</td>
+											<td>{{row.memberCardNo}}</td>
+											<!--<td>{{row.memberId}}</td>-->
+											<td>{{row.memberName}}</td>
+											<td>{{row.orderNo}}</td>
+											<td>{{row.productName}}</td>
+											<td>{{row.price}}</td>
+											<td>{{row.number}}</td>
+											<td ng-if="row.typeId == 2">-{{row.balance}}</td>
+											<td ng-if="row.typeId != 2">{{row.balance}}</td>
+											<td>{{row.balancePay}}</td>
+											<td title="{{row.orderTime | date : 'yyyy-MM-dd HH:mm:ss'}}">{{row.orderTime | date : 'yyyy-MM-dd'}}</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div ng-show="totalItems > 0">
+									<h5 style="font-size:14px;float:left;">
+					                <select ng-model="viewby" ng-change="setItemsPerPage(viewby)">
+					                    <option>10</option>
+					                    <option>20</option>
+					                    <option>30</option>
+					                </select>&nbsp;{{records}}&nbsp;&nbsp;{{total}}{{totalItems}}{{records}}
+								</h5>
+					            <uib-pagination
+					                    total-items="totalItems"
+					                    ng-model="currentPage"
+					                    max-size="5"
+										rotate="false"
+					                    boundary-links="true"
+					                    force-ellipses="false"
+					                    first-text="{{first}}"
+					                    last-text="{{last}}"
+					                    previous-text="{{previous}}"
+					                    next-text="{{next}}"
+					                    num-pages="numPages"
+					                    ng-change="pageChanged()"
+					                    items-per-page="itemsPerPage"
+					                    class="pagination-sm" style="float:right;margin:0">
+					            </uib-pagination>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->
+
+<script type="text/javascript">
+
+	jQuery(function($) {
+		$('.date-picker').datepicker({
+					autoclose: true,
+					todayHighlight: true,
+					format: "yyyy-mm-dd"
+				})
+				.next().on(ace.click_event, function(){
+			$(this).prev().focus();
+		});
+	});
+
+</script>

@@ -1,0 +1,270 @@
+<div class="modal-content">
+
+    <div class="modal-header">
+        <button type="button" ng-click="onCancelClick()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><strong><span ng-bind-html="'order-detail-1' | T"></span></strong></h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="con_row">
+            <tr class="detail-row">
+				<td colspan="8">
+					<div class="table-detail">
+						<div class="row">
+
+							<div class="col-xs-12 col-sm-6">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'member-detail-83' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.no}}</span>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'member-detail-84' | T"></span>ID </div>
+
+										<div class="profile-info-value">
+											<span>{{order.memberId}}</span>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'order-detail-4' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.memberName}}</span>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'common-mobile' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.mobile}}</span>
+										</div>
+									</div>
+									
+                                    <div class="profile-info-row">
+										<div class="profile-info-name"><span ng-bind-html="'common-ddje' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.amount}}</span>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'order-detail-7' | T"></span>ID </div>
+
+										<div class="profile-info-value">
+											<span>{{order.qrCode}}</span>
+										</div>
+									</div>
+
+
+									<div class="profile-info-row">
+										<div class="profile-info-name">  </div>
+
+										<div class="profile-info-value">
+											<span> 
+												<button ng-if="order.type==1&&order.status == 1" class="btn btn-white btn-warning btn-bold" ng-click="orderCheck(order.id)"><i class="ace-icon fa fa-list"></i> <span ng-bind-html="'order-detail-8' | T"></span></button>
+                                                <button ng-if="order.type==2&&order.status == 4" class="btn btn-white btn-warning btn-bold" ng-click="orderCheck(order.id)"><i class="ace-icon fa fa-list"></i> <span ng-bind-html="'order-detail-8' | T"></span></button>
+												<button ng-if="order.type==3&&order.status == 5" class="btn btn-white btn-warning btn-bold" ng-click="orderCheck(order.id)"><i class="ace-icon fa fa-list"></i> <span ng-bind-html="'order-detail-8' | T"></span></button>
+											</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-6">
+								<div class="space visible-xs"></div>
+
+								<div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'member-detail-87' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span style="color:#6FB3E0">{{order.payAmount}}</span>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'member-detail-86' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.couponName}}</span>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'member-detail-90' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span style="color:#6FB3E0">{{order.taxAmount}}</span>
+										</div>
+									</div>
+
+                                    <div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'common-xdsj' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{ order.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</span>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'common-mdmc' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.storeName}}</span>
+										</div>
+									</div>
+									
+									<div class="profile-info-row">
+										<div class="profile-info-name"> <span ng-bind-html="'order-detail-16' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.returnCode}}</span>
+										</div>
+									</div>
+
+									<div class="profile-info-row">
+										<div class="profile-info-name" ng-if="order.type==2  || (order.type==1 && order.status==3)"> <span ng-bind-html="'order-detail-17' | T"></span> </div>
+										<div class="profile-info-name" ng-if="order.type==3  || (order.type==1 && order.status==4)"> <span ng-bind-html="'order-detail-18' | T"></span> </div>
+
+										<div class="profile-info-value">
+											<span>{{order.note}}</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+                            <div class="col-xs-12 col-sm-12" style="margin-top:20px;"><div class="hr hr-18 hr-double dotted"></div></div>
+                            <div class="col-sm-12" style="min-height: 400px;" ng-init="getPage()">
+								<!-- #section:elements.tab.option -->
+								<div class="tabbable">
+									<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+
+										<li class="active">
+											<a data-toggle="tab" href="#memberIntegral" ng-click="showMemberIntegral()"><span ng-bind-html="'order-detail-19' | T"></span></a>
+										</li>
+
+										<li ng-show="order.type==2 || (order.type==1 && order.status==3)">
+											<a data-toggle="tab" href="#returnOrder" ng-click="showMemberCard()"><span ng-bind-html="'order-detail-20' | T"></span></a>
+										</li>
+										<li ng-show="order.type==3  || (order.type==1 && order.status==4)">
+											<a data-toggle="tab" href="#changeOrder" ng-click="showMemberCard()"><span ng-bind-html="'order-detail-21' | T"></span></a>
+										</li>
+
+									</ul>
+
+									<div class="tab-content" style="height: 410px;">
+										<div id="memberIntegral" class="tab-pane in active">
+											<table class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+														<th><span ng-bind-html="'order-detail-23' | T"></span></th>
+														<th><span ng-bind-html="'common-dj' | T"></span></th>
+														<th><span ng-bind-html="'common-sl' | T"></span></th>
+														<th><span ng-bind-html="'finance-record-8' | T"></span></th>
+														<th><span ng-bind-html="'member-detail-87' | T"></span></th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr ng-repeat="row in order.details" repeat-finish align="center">
+														<td>{{($index+1)}}</td>
+														<td>{{row.productName}}</td>
+														<td>{{row.price}}</td>
+														<td>{{row.number}}</td>
+														<td>{{row.amount}}</td>
+														<td>{{row.payAmount}}</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+
+
+										<div id="returnOrder" class="tab-pane">
+											<table class="table table-striped table-bordered table-hover">
+												<thead>
+												<tr>
+													<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+													<th><span ng-bind-html="'order-detail-30' | T"></span></th>
+													<th><span ng-bind-html="'common-dj' | T"></span></th>
+													<th><span ng-bind-html="'common-sl' | T"></span></th>
+													<th><span ng-bind-html="'finance-record-8' | T"></span></th>
+													<th><span ng-bind-html="'member-detail-87' | T"></span></th>
+													<th><span ng-bind-html="'order-detail-35' | T"></span></th>
+												</tr>
+												</thead>
+
+												<tbody>
+												<tr ng-repeat="row in order.details" repeat-finish align="center">
+													<td>{{($index+1)}}</td>
+													<td>{{row.productName}}</td>
+													<td>{{row.price}}</td>
+													<td>{{row.number}}</td>
+													<td>{{row.amount}}</td>
+													<td>{{row.payAmount}}</td>
+													<td>{{row.updateTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+												</tr>
+												</tbody>
+											</table>
+
+										</div>
+
+										<div id="changeOrder" class="tab-pane">
+											<table class="table table-striped table-bordered table-hover">
+												<thead>
+												<tr>
+													<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+													<th><span ng-bind-html="'order-detail-37' | T"></span></th>
+													<th><span ng-bind-html="'common-dj' | T"></span></th>
+													<th><span ng-bind-html="'common-sl' | T"></span></th>
+													<th><span ng-bind-html="'finance-record-8' | T"></span></th>
+													<th><span ng-bind-html="'member-detail-87' | T"></span></th>
+													<th><span ng-bind-html="'order-detail-42' | T"></span></th>
+												</tr>
+												</thead>
+
+												<tbody>
+												<tr ng-repeat="row in order.details" repeat-finish align="center">
+													<td>{{($index+1)}}</td>
+													<td>{{row.productName}}</td>
+													<td>{{row.price}}</td>
+													<td>{{row.number}}</td>
+													<td>{{row.amount}}</td>
+													<td>{{row.payAmount}}</td>
+													<td>{{row.updateTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+												</tr>
+												</tbody>
+											</table>
+
+										</div>
+
+
+									</div>
+								</div>
+
+								<!-- /section:elements.tab.option -->
+							</div><!-- /.col -->
+
+						</div>
+					</div>
+				</td>
+			</tr>
+        </div>
+    </div>
+
+    <div style="margin-top:50px;">
+    </div>
+
+</div>

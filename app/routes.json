@@ -1,0 +1,307 @@
+[{
+  "name": "login",
+  "url": "/login",
+  "templateUrl": "views/system/login.html",
+  "controller": "LoginCtrl"
+  },
+  {
+  "name": "staff-list",
+  "url": "/staff-list",
+  "templateUrl": "views/user/staff-list.html",
+  "controller": "StaffListCtrl"
+  },
+  {
+  "name": "role-list",
+  "url": "/role-list",
+  "templateUrl": "views/user/role-list.html",
+  "controller": "RoleListCtrl"
+  },
+  {
+  "name": "mobile-send-list",
+  "url": "/mobile-send-list",
+  "templateUrl": "views/system/mobile-send-list.html",
+  "controller": "MobileSendCtrl"
+  },
+  {
+  "name": "system-log-list",
+  "url": "/system-log-list",
+  "templateUrl": "views/system/system-log-list.html",
+  "controller": "SystemLogCtrl"
+  },
+  {
+  "name": "app-version-list",
+  "url": "/app-version-list",
+  "templateUrl": "views/system/app-version-list.html",
+  "controller": "AppVersionCtrl"
+  },
+  {
+  "name": "help-center-list",
+  "url": "/help-center-list",
+  "templateUrl": "views/system/help-center-list.html",
+  "controller": "HelpCenterCtrl"
+  },
+  {
+  "name": "menu-manager-list",
+  "url": "/menu-manager-list",
+  "templateUrl": "views/system/menu-manager-list.html",
+  "controller": "MenuManagerCtrl"
+  },
+  {
+  "name": "feedback-list",
+  "url": "/feedback-list",
+  "templateUrl": "views/operation/feedback-list.html",
+  "controller": "FeedbackListCtrl"
+  },
+  {
+  "name": "activity-list",
+  "url": "/activity-list",
+  "templateUrl": "views/operation/activity-list.html",
+  "controller": "ActivityListCtrl"
+  },
+  {
+  "name": "coupon-list",
+  "url": "/coupon-list",
+  "templateUrl": "views/operation/coupon-list.html",
+  "controller": "CouponCtrl"
+  },
+  {
+  "name": "pay-record-list",
+  "url": "/pay-record-list",
+  "templateUrl": "views/pay/pay-record-list.html",
+  "controller": "PayRecordCtrl"
+  },
+  {
+  "name": "withdraw-apply-list",
+  "url": "/withdraw-apply-list",
+  "templateUrl": "views/finance/withdraw-apply-list.html",
+  "controller": "WithdrawApplyListCtrl"
+  },
+  {
+  "name": "tradelog-list",
+  "url": "/tradelog-list",
+  "templateUrl": "views/finance/tradelog-list.html",
+  "controller": "TradeLogCtrl"
+  },
+  {
+  "name": "order-list",
+  "url": "/order-list",
+  "templateUrl": "views/order/order-list.html",
+  "controller": "OrderRecordCtrl"
+  },
+  {
+  "name": "return-goods-list",
+  "url": "/return-goods-list",
+  "templateUrl": "views/order/return-goods-list.html",
+  "controller": "ReturnGoodsCtrl"
+  },
+  {
+  "name": "order-evaluate-list",
+  "url": "/order-evaluate-list",
+  "templateUrl": "views/order/order-evaluate-list.html",
+  "controller": "OrderEvaluateCtrl"
+  },
+  {
+  "name": "return-money-list",
+  "url": "/return-money-list",
+  "templateUrl": "views/finance/return-money-list.html",
+  "controller": ""
+  },
+  {
+  "name": "goods-list",
+  "url": "/goods-list",
+  "templateUrl": "views/goods/goods-list.html",
+  "controller": "GoodsListCtrl"
+  },
+  {
+  "name": "goods-category-list",
+  "url": "/goods-category-list",
+  "templateUrl": "views/goods/goods-category-list.html",
+  "controller": "GoodsCategoryListCtrl"
+  },
+  {
+  "name": "store-list",
+  "url": "/store-list",
+  "templateUrl": "views/supermarket/store-list.html",
+  "controller": "StoreListCtrl"
+  },
+  {
+  "name": "supermarket-list",
+  "url": "/supermarket-list",
+  "templateUrl": "views/supermarket/supermarket-list.html",
+  "controller": "SuperMarketListCtrl"
+  },
+  {
+  "name": "merchant-list",
+  "url": "/merchant-list",
+  "templateUrl": "views/merchant/merchant-list.html",
+  "controller": "MerchantListCtrl"
+  },
+  {
+  "name": "merchant-apply-list",
+  "url": "/merchant-apply-list",
+  "templateUrl": "views/merchant/merchant-apply-list.html",
+  "controller": "MerchantApplyListCtrl"
+  },
+  {
+  "name": "member-creditcard-list",
+  "url": "/member-creditcard-list",
+  "templateUrl": "views/member/member-creditcard-list.html",
+  "controller": ""
+  },
+  {
+  "name": "member-bankcard-list",
+  "url": "/member-bankcard-list",
+  "templateUrl": "views/member/member-bankcard-list.html",
+  "controller": ""
+  },
+  {
+  "name": "member-card-list",
+  "url": "/member-card-list",
+  "templateUrl": "views/member/member-card-list.html",
+  "controller": "MemberCardCtrl"
+  },
+  {
+  "name": "member-score-list",
+  "url": "/member-score-list",
+  "templateUrl": "views/member/member-score-list.html",
+  "controller": ""
+  },
+  {
+  "name": "#/member-level-list",
+  "url": "/#/member-level-list",
+  "templateUrl": "views/member/#/member-level-list.html",
+  "controller": ""
+  },
+  {
+  "name": "member-list",
+  "url": "/member-list",
+  "templateUrl": "views/member/member-list.html",
+  "controller": "MemberListCtrl"
+  },
+  {
+  "name": "merchant-apply",
+  "url": "/merchant-apply",
+  "templateUrl": "views/merchant/merchant-apply.html",
+  "controller": "MerchantApplyListCtrl"
+  },
+  {
+    "name": "about-list",
+    "url": "/about-list",
+    "templateUrl": "views/system/about-list.html",
+    "controller": "AboutListCtrl"
+  },
+  {
+    "name": "contact-list",
+    "url": "/contact-list",
+    "templateUrl": "views/system/contact-list.html",
+    "controller": "ContactListCtrl"
+  },
+  {
+    "name": "sys-coupon-list",
+    "url": "/sys-coupon-list",
+    "templateUrl": "views/operation/sys-coupon-list.html",
+    "controller": "SysCouponListCtrl"
+  },
+  {
+    "name": "member-auth-list",
+    "url": "/member-auth-list",
+    "templateUrl": "views/member/member-auth-list.html",
+    "controller": "MemberAuthListCtrl"
+  },
+  {
+    "name": "product-sell-list",
+    "url": "/product-sell-list",
+    "templateUrl": "views/reports/product-sell-list.html",
+    "controller": "GoodsSaleListCtrl"
+  },
+  {
+    "name": "business-amount-list",
+    "url": "/business-amount-list",
+    "templateUrl": "views/reports/business-amount-list.html",
+    "controller": "BusinessAmountList"
+  },
+  {
+    "name": "order-sale-list",
+    "url": "/order-sale-list",
+    "templateUrl": "views/reports/order-sale-list.html",
+    "controller": "OrderSaleListCtrl"
+  },
+  {
+    "name": "returned-goods-list",
+    "url": "/returned-goods-list",
+    "templateUrl": "views/reports/returned-goods-list.html",
+    "controller": "ReturnedGoodsListCtrl"
+  },
+  {
+    "name": "sell-turnover-list",
+    "url": "/sell-turnover-list",
+    "templateUrl": "views/reports/sell-turnover-list.html",
+    "controller": "SaleAmountCtrl"
+  },
+  {
+    "name": "supermarket-sale-list",
+    "url": "/supermarket-sale-list",
+    "templateUrl": "views/reports/supermarket-sale-list.html",
+    "controller": "SupermarketSaleListCtrl"
+  },
+  {
+    "name": "access-statistics-list",
+    "url": "/access-statistics-list",
+    "templateUrl": "views/reports/access-statistics-list.html",
+    "controller": "AccessStatisticsCtrl"
+  },
+  {
+    "name": "finance-record-list",
+    "url": "/finance-record-list",
+    "templateUrl": "views/finance/finance-record.html",
+    "controller": "FinanceRecordListCtrl"
+  },
+  {
+    "name": "platform-settlement-list",
+    "url": "/platform-settlement-list",
+    "templateUrl": "views/finance/platform-settlement.html",
+    "controller": "PlatformSettlementListCtrl"
+  },
+  {
+    "name": "sales-volume-list",
+    "url": "/sales-volume-list",
+    "templateUrl": "views/finance/sales-volume.html",
+    "controller": "SalesVolumeListCtrl"
+  },
+  {
+    "name": "stores-turnover-list",
+    "url": "/stores-turnover-list",
+    "templateUrl": "views/finance/stores-turnover.html",
+    "controller": "StoresTurnoverListCtrl"
+  },
+  {
+    "name": "store-turnover-list",
+    "url": "/store-turnover-list",
+    "templateUrl": "views/finance/store-turnover.html",
+    "controller": "StoreTurnoverListCtrl"
+  },
+  {
+    "name": "platform-expenditure-list",
+    "url": "/platform-expenditure-list",
+    "templateUrl": "views/finance/platform-expenditure-list.html",
+    "controller": "PlatformExpendCtrl"
+  },
+  {
+    "name": "platform-income-list",
+    "url": "/platform-income-list",
+    "templateUrl": "views/finance/platform-income-list.html",
+    "controller": "PlatformIncomeCtrl"
+  },
+  {
+    "name": "index",
+    "url": "/index",
+    "templateUrl": "views/reports/order-statistics-list.html",
+    "controller": "OrderStatisticsListCtrl"
+  },
+  {
+    "name": "brand-list",
+    "url": "/brand-list",
+    "templateUrl": "views/goods/brand-list.html",
+    "controller": "BrandListCtrl"
+  }
+]

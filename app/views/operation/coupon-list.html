@@ -1,0 +1,168 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="ace-settings-container" id="ace-settings-container">
+			<!-- 公共皮肤，框架布局设置skin.html -->
+			<div ng-include="'views/common/skin.html'" ></div>
+			<!-- 公共皮肤，框架布局设置skin.html -->
+		</div>
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<span><span ng-bind-html="'common-background-management' | T"></span></span>
+				</li>
+
+				<li>
+					<span><span ng-bind-html="'activity-list-2' | T"></span></span>
+				</li>
+			</ul><!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="page-header">
+								<form class="form-inline">
+									<div class="input-group">
+										<span class="input-group-addon"><span ng-bind-html="'common-mobile' | T"></span></span>
+										<input class="form-control" ng-model="mobile" type="text" id="mobile" maxlength="20" />
+									</div>
+									<div class="input-group" style="margin-left:20px;">
+										<span class="input-group-addon"><span ng-bind-html="'coupon-list-5' | T"></span></span>
+										<input class="form-control" ng-model="name" type="text" id="name" maxlength="20" />
+									</div>
+
+									<div class="input-group" style="margin-left:20px;">
+										<span class="input-group-addon"><span ng-bind-html="'coupon-list-7' | T"></span></span>
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="startDate" readonly size="12" type="text"/>
+											<span class="input-group-addon">
+												<i class="fa fa-calendar bigger-110"></i>
+											</span>
+										</div>
+				                        -
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="endDate" readonly size="12" type="text" />
+											<span class="input-group-addon">
+												<i class="fa fa-calendar bigger-110"></i>
+											</span>
+										</div>
+						            </div>
+						            <div class="input-group" style="margin-left:20px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-status' | T"></span></span>
+						                <select class="chosen-select form-control" id="status" ng-model="status" name="status" style="width:120px;">
+											<option value="">{{'common-select' | T}}</option>
+				                            <option value="0">{{'coupon-list-10' | T}}</option>
+				                            <option value="1">{{'coupon-list-11' | T}}</option>
+											<option value="-1">{{'coupon-list-12' | T}}</option>
+						                </select>
+						            </div>
+
+						            <div class="form-group" style="margin-left:20px;" align="right">
+						                <button type="button" class="btn btn-white btn-success" ng-click="query()"><i class="ace-icon fa fa-search nav-search-icon"></i><strong><span ng-bind-html="'common-query' | T"></span></strong></button>
+						            </div>
+						            <div class="form-group" style="margin-left:20px;">
+						                <button type="button" class="btn btn-white btn-info" ng-click="reset()"><i class=" ace-icon fa fa-undo"></i><strong><span ng-bind-html="'common-reset' | T"></span></strong></button>
+						            </div>
+
+									<!--<div class="form-group" style="margin-left:30px;">
+						                <button type="button" class="btn btn-white btn-danger" ng-click="openSendCouponWin()"><i class="ace-icon fa fa-cogs"></i><strong><span ng-bind-html="'coupon-list-15' | T"></span></strong></button>
+						            </div>-->
+
+						        </form>
+							</div><!-- /.page-header -->
+
+							<div class="table-header">
+								<span ng-bind-html="'coupon-list-16' | T"></span>
+							</div>
+							<div>
+								<table class="table table-striped table-bordered table-hover" ng-init="getPage()">
+									<thead style="font-size:12px;">
+										<tr>
+											<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+											<th><span ng-bind-html="'common-nc' | T"></span></th>
+											<th><span ng-bind-html="'common-mobile' | T"></span></th>
+											<th><span ng-bind-html="'add-sys-coupon-2' | T"></span></th>
+											<th><span ng-bind-html="'add-sys-coupon-6' | T"></span></th>
+											<th><span ng-bind-html="'add-sys-coupon-9' | T"></span></th>
+											<th><span ng-bind-html="'coupon-list-24' | T"></span></th>
+											<th><span ng-bind-html="'coupon-list-26' | T"></span></th>
+											<th><span ng-bind-html="'coupon-list-27' | T"></span></th>
+											<th><span ng-bind-html="'common-status' | T"></span></th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr ng-repeat="row in data" repeat-finish align="center">
+											<td>{{($index+1) + (currentPage - 1) * itemsPerPage}}</td>
+											<td>{{row.nickName}}</td>
+											<td>{{row.mobile}}</td>
+											<td>{{row.couponTypeName}}</td>
+											<td>{{row.couponName}}</td>
+											<td>{{row.couponValue}}</td>
+											<td>{{row.condition1}}</td>
+											<td>{{row.endTime | date : 'yyyy/MM/dd  HH:mm:ss'}}</td>
+											<td>{{row.usedTime | date : 'yyyy/MM/dd  HH:mm:ss'}}</td>
+											<td ng-if="lang == 'cn'">
+												{{row.status | decode:0:'未使用':1:'已使用':2:'已过期'}}
+											</td>
+											<td ng-if="lang == 'en'">
+												{{row.status | decode:0:'not used':1:'already used':2:'expired'}}
+											</td>
+
+										</tr>
+									</tbody>
+								</table>
+
+					            <h5 style="font-size:14px;float:left;">
+					                <select ng-model="viewby" ng-change="setItemsPerPage(viewby)">
+					                    <option>10</option>
+					                    <option>20</option>
+					                    <option>30</option>
+					                </select>&nbsp;{{records}}&nbsp;&nbsp;{{total}}{{totalItems}}{{records}}
+								</h5>
+					            <uib-pagination
+					                    total-items="totalItems"
+					                    ng-model="currentPage"
+					                    max-size="5"
+										rotate="false"
+					                    boundary-links="true"
+					                    force-ellipses="false"
+					                    first-text="{{first}}"
+					                    last-text="{{last}}"
+					                    previous-text="{{previous}}"
+					                    next-text="{{next}}"
+					                    num-pages="numPages"
+					                    ng-change="pageChanged()"
+					                    items-per-page="itemsPerPage"
+					                    class="pagination-sm" style="float:right;margin:0">
+					            </uib-pagination>
+
+							</div>
+						</div>
+					</div>
+					<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->
+
+<script type="text/javascript">
+
+	jQuery(function($) {
+		$('.date-picker').datepicker({
+    		autoclose: true,
+    		todayHighlight: true,
+            format: "yyyy-mm-dd"
+    	})
+    	.next().on(ace.click_event, function(){
+    		$(this).prev().focus();
+    	});
+	});
+
+</script>

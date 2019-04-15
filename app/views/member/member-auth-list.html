@@ -1,0 +1,170 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="ace-settings-container" id="ace-settings-container">
+			<!-- 公共皮肤，框架布局设置skin.html -->
+			<div ng-include="'views/common/skin.html'" ></div>
+			<!-- 公共皮肤，框架布局设置skin.html -->
+		</div>
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<span><span ng-bind-html="'common-background-management' | T"></span></span>
+				</li>
+
+				<li>
+					<span><span ng-bind-html="'common-hygl' | T"></span></span>
+				</li>
+			</ul><!-- /.breadcrumb -->
+		</div>
+
+		<div class="page-content">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="page-header">
+								<form class="form-inline">
+									<div class="input-group">
+										<span class="input-group-addon"><span ng-bind-html="'common-mobile' | T"></span></span>
+										<input class="form-control" ng-model="mobile" type="text" id="mobile" maxlength="20" />
+									</div>
+						            <div class="input-group" style="margin-left:20px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-sqsj' | T"></span></span>
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="startDate" readonly size="12" type="text"/>
+											<span class="input-group-addon">
+												<i class="fa fa-calendar bigger-110"></i>
+											</span>
+										</div>
+				                        -
+										<div class="input-group">
+											<input class="form-control date-picker" ng-model="endDate" readonly size="12" type="text" />
+											<span class="input-group-addon">
+												<i class="fa fa-calendar bigger-110"></i>
+											</span>
+										</div>
+						            </div>
+						            <div class="input-group" style="margin-left:20px;">
+										<span class="input-group-addon"><span ng-bind-html="'common-hyzt' | T"></span></span>
+						                <select class="chosen-select form-control" id="status" ng-model="status" name="status" style="width:120px;">
+											<option value="" size="300">{{'common-select' | T}}</option>
+				                            <option value="-1">{{'common-btg' | T}}</option>
+				                            <option value="0">{{'common-dsh' | T}}</option>
+											<option value="1">{{'common-tg' | T}}</option>
+						                </select>
+						            </div>
+
+						            <div class="form-group" style="margin-left:50px;margin-right:15px;">
+						                <button type="button" class="btn btn-white btn-success" ng-click="query()"><i class="ace-icon fa fa-search nav-search-icon"></i><strong><span ng-bind-html="'common-query' | T"></span></strong></button>
+						            </div>
+						            <div class="form-group">
+						                <button type="button" class="btn btn-white btn-info" ng-click="reset()"><i class=" ace-icon fa fa-undo"></i><strong><span ng-bind-html="'common-reset' | T"></span></strong></button>
+						            </div>
+						        </form>
+							</div><!-- /.page-header -->
+
+							<div class="table-header">
+								<span ng-bind-html="'member-auth-list-13' | T"></span>
+							</div>
+							<div>
+								<table class="table table-striped table-bordered table-hover" ng-init="getPage()">
+									<thead>
+										<tr>
+											<th><span ng-bind-html="'common-serial-number' | T"></span></th>
+											<th><span ng-bind-html="'common-hyxm' | T"></span></th>
+											<th><span ng-bind-html="'common-mobile' | T"></span></th>
+											<th><span ng-bind-html="'member-auth-list-17' | T"></span></th>
+											<!--<th><span ng-bind-html="'member-auth-list-18' | T"></span></th>-->
+											<th><span ng-bind-html="'member-auth-list-19' | T"></span></th>
+											<!--<th><span ng-bind-html="'member-auth-list-20' | T"></span></th>-->
+											<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i><span ng-bind-html="'common-sqsj' | T"></span></th>
+											<th><span ng-bind-html="'common-status' | T"></span></th>
+											<th><span ng-bind-html="'common-operation' | T"></span></th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr ng-repeat="row in data" repeat-finish align="center">
+											<td>{{($index+1) + (currentPage - 1) * itemsPerPage}}</td>
+											<td>{{row.firstName}}{{row.lastName}}</td>
+											<td style="color:#6FB3E0">{{row.mobile}}</td>
+											<td>{{row.email}}</td>
+											<!--<td>{{row.address}}</td>-->
+											<td>{{row.idCard}}</td>
+											<!--<td>{{row.postCode}}</td>-->
+											<td>{{row.createTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+											<td ng-if="lang == 'cn'">
+												<div class="label {{row.status | decode:1:'label-success':0:'label-info':-1:'label-danger'}}" style="width:80px;">
+							                        {{row.status | decode:-1:'不通过':0:'待审核':1:'通过'}}
+							                    </div>
+								            </td>
+								            <td ng-if="lang == 'en'">
+												<div class="label {{row.status | decode:1:'label-success':0:'label-info':-1:'label-danger'}}" style="width:80px;">
+							                        {{row.status | decode:-1:'fail':0:'pending':1:'approved'}}
+							                    </div>
+								            </td>
+											<td>
+												<div class="btn-group" role="group">
+													<button  ng-if="row.status == 0" class="btn btn-white btn-default btn-bold" ng-click="showMemberAuthAudit(row.id)" style="margin-left:4px;"><span ng-bind-html="'common-dsh' | T"></span></button>
+													<button  ng-if="row.status == -1" class="btn btn-white btn-warning btn-bold disabled" style="margin-left:4px;"><span ng-bind-html="'common-btg' | T"></span></button>
+													<button  ng-if="row.status == 1" class="btn btn-white btn-warning btn-bold disabled" style="margin-left:4px;"><span ng-bind-html="'common-tg' | T"></span></button>
+												</div>
+
+					                        </td>
+										</tr>
+									</tbody>
+								</table>
+
+					            <div ng-show="totalItems > 0">
+					            <h5 style="font-size:14px;float:left;">
+					                <select ng-model="viewby" ng-change="setItemsPerPage(viewby)">
+					                    <option>10</option>
+					                    <option>20</option>
+					                    <option>30</option>
+					                </select>&nbsp;{{records}}&nbsp;&nbsp;{{total}}{{totalItems}}{{records}}
+								</h5>
+					            <uib-pagination
+					                    total-items="totalItems"
+					                    ng-model="currentPage"
+					                    max-size="5"
+										rotate="false"
+					                    boundary-links="true"
+					                    force-ellipses="false"
+					                    first-text="{{first}}"
+					                    last-text="{{last}}"
+					                    previous-text="{{previous}}"
+					                    next-text="{{next}}"
+					                    num-pages="numPages"
+					                    ng-change="pageChanged()"
+					                    items-per-page="itemsPerPage"
+					                    class="pagination-sm" style="float:right;margin:0">
+					            </uib-pagination>
+								</div>
+					            
+							</div>
+						</div>
+					</div>
+					<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->
+
+<script type="text/javascript">
+
+	jQuery(function($) {
+		$('.date-picker').datepicker({
+    		autoclose: true,
+    		todayHighlight: true,
+            format: "yyyy-mm-dd"
+    	})
+    	.next().on(ace.click_event, function(){
+    		$(this).prev().focus();
+    	});
+	});
+
+</script>
